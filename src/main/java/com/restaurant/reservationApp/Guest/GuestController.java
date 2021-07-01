@@ -1,14 +1,14 @@
 package com.restaurant.reservationApp.Guest;
 
-import com.restaurant.reservationApp.Employee.Employee;
+import com.restaurant.reservationApp.employee.Employee;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api")
 public class GuestController {

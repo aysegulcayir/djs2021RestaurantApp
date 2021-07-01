@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to the Restaurant</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function getData() {
+
+            console.log('getting data...');
+
+            // Get data from backend.
+            $.ajax({
+                url: 'http://localhost:8080/api/guests',
+                type: 'get',
+                headers: { "Accept": "application/json" },
+                success: function(data) {
+                    console.log('data get success');
+                    console.log(data.length);
+                    $('#guests').text(data.FirstName);
+                }
+            });
+
+        }
+        function showCustomer(str) {
+  if (str == "") {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  }
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("txtHint").innerHTML = this.responseText;
+  }
+  xhttp.open("GET", "getcustomer.php?http://localhost:8080/api/guests="+str);
+  xhttp.send();
+}
+    </script>
+</head>
+<body>
+
+<h1>GUESTS</h1>
+
+<!-- Use JavaScript and JQuery to do this -->
+
+<!-- Get the book from the backend -->
+
+<button onclick="getData()">Show it!</button>
+
+<!-- Show the book in html -->
+<p id="guests">No data...</p>
+
+</body>
+</html>

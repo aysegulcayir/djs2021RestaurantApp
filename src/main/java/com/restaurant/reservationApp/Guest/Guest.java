@@ -7,6 +7,24 @@ public class Guest {
     private long phoneNumber;
     private long roomNumber;
 
+    public Guest() {
+    }
+
+    public Guest(long id, String firstName, String lastName, long phoneNumber, long roomNumber) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.roomNumber = roomNumber;
+    }
+
+    public Guest(long id, String firstName, String lastName, long phoneNumber) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+    }
+
     public long getId() {
         return id;
     }

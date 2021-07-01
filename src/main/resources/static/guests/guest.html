@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/144f4e017a.js" crossorigin="anonymous"></script>
+    <title>Employees</title>
+</head>
+
+<body>
+<div class="container">
+
+    <div class="jumbotron">
+        <h3>Guests</h3>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Firstname</th>
+                <th scope="col">Lastname</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Room Number</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody id="tableBody">
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script>
+        $(document).ready(function () {
+            $.ajax({
+                url: 'http://localhost:8080/api/guests',
+                headers: { "Accept": "application/json" },
+                type: "GET", /* or type:"GET" or type:"PUT" */
+                dataType: "json",
+                data: {
+                },
+                success: function (data) {
+                    console.log(data);
+                    console.log(data.length);
+
+                   let html;
+                    data.forEach(element => {
+                        html += `<tr>
+                                        <td>${element.id}</td>
+                                        <td>${element.firstName}</td>
+                                        <td>${element.lastName}</td>
+                                        <td>${element.phoneNumber}</td>
+                                        <td>${element.roomNumber}</td>
+                                       <td> <i class="far fa-edit"></i> <i class="far fa-trash-alt"></i></td>
+                                    </tr>`
+                    });
+
+                    $('#tableBody').append(html);
+
+                },
+                error: function () {
+                    console.log("error");
+                }
+            });
+        })
+
+    </script>
+</body>
+
+</html>
