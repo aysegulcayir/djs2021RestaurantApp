@@ -22,7 +22,9 @@ import java.util.Arrays;
 import java.util.List;
 
 @SpringBootApplication
-public class RestaurantAppApplication  {
+
+public class RestaurantAppApplication {
+
 
     @Autowired
     private DrinkService drinkService;
@@ -42,7 +44,7 @@ public class RestaurantAppApplication  {
         SpringApplication.run(RestaurantAppApplication.class, args);
     }
 
-//
+
 //    @Override
 //    public void run(String... args) throws Exception {
 //        final List<Drink> drinkList = new ArrayList<>(Arrays.asList(

@@ -40,6 +40,7 @@
             <input type="number" class="form-control" id="inputRoomNumber" name="roomnumber"
                    placeholder="Room Number">
           </div>
+          <input type="submit" class="btn btn-primary " value="Save">
         </div>
     </div>
   </div>
@@ -66,8 +67,8 @@
     var guestRoomNumber = $("#inputRoomNumber").val();
     var guestJsObj = {firstName:guestName,
       lastName:guestLastName,
-      phoneNumber:phoneNumber,
-      roomNumber:roomNumber};
+      phoneNumber:guestPhoneNumber,
+      roomNumber:guestRoomNumber};
       var guestJsonObj=JSON.stringify(guestJsObj);
       $.ajax({
         type: "post",
